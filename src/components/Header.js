@@ -44,6 +44,10 @@ const Header = () => {
     }
   };
 
+  const socialsArray= socials.map(social=>
+    <a href={social.url}> <FontAwesomeIcon icon={social.icon} size='2x' /></a>
+  );
+
   return (
     <Box
       position="fixed"
@@ -64,13 +68,17 @@ const Header = () => {
           alignItems="center"
         >
           <nav>
-            {/* Add social media links based on the `socials` data */}
+            <HStack spacing={8}>
+              {socialsArray}
+            </HStack>
           </nav>
           <nav>
             <HStack spacing={8}>
-              {/* Add links to Projects and Contact me section */}
+              {<a href="/#contact-me" onClick={handleClick('contactme')} >Contact Me</a>}
+              {<a href="/#projects" onClick={handleClick('projects')} >Projects</a>}
             </HStack>
           </nav>
+          
         </HStack>
       </Box>
     </Box>
